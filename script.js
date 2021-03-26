@@ -7,6 +7,7 @@ faker.locale = 'pt_BR';
 function gerarPessoas(parametro) {
     
     const pessoas = [];
+    
     for(let i = 0; i < parametro; i++) {
         let nome = faker.name.findName()
         let email = faker.internet.email(nome)

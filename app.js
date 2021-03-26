@@ -4,11 +4,12 @@ const express = require("express");
 const chalk = require("chalk");
 const app = express();
 const gerarPessoas = require("./script.js")
+const port = 3000;
 
 app.get('/', (req, res) => {
-    res.send(gerarPessoas(20))
+    res.send(gerarPessoas(10))
 })
 
-app.listen(3000, () => {
-    console.log(chalk.green("Api caseira rodando na porta 3000"));
+app.listen(port, () => {
+    console.log(chalk.blue("Api caseira rodando na porta 3000"));
 })
