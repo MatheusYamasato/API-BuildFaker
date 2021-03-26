@@ -1,35 +1,31 @@
 const faker = require("faker");
-const express = require("express");
-const app = express();
+const moment = require("moment");
 
 faker.locale = 'pt_BR';
 
-
 function gerarPessoas(parametro) {
-    
     const pessoas = [];
-    
     for(let i = 0; i < parametro; i++) {
         let nome = faker.name.findName()
         let email = faker.internet.email(nome)
+        let dataNasc = moment(faker.date.past("20", "1980")).format("DD/MM/YYYY")
+        let ultimoNome = faker.name.lastName()
+        let genero = faker.name.gender()
+        let nomeUsuario = faker.internet.userName()
+        let senha = faker.internet.password()
+
         const pessoa = {
             nome,
-            lastName: faker.name.lastName(),
-            gender: faker.name.gender(),
-            birthDay: faker.date.past(),
+            ultimoNome,
+            genero,
+            dataNasc,
             email,
-            userName: faker.internet.userName(),
-            password: faker.internet.password(),
+            nomeUsuario,
+            senha
         };
         pessoas.push(pessoa)
     }
     return pessoas;
 }
 
-app.get('/', (req, res) => {
-    res.send(gerarPessoas(50))
-})
-
-app.listen(3000, () => {
-    console.log("Funcionando na porta 3000");
-})
+module.exports = gerarPessoas
