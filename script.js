@@ -13,7 +13,7 @@ function gerarPessoas(parametro) {
         let dataNasc = moment(faker.date.past("20", "1980")).format("DD/MM/YYYY")
         let ultimoNome = faker.name.lastName()
         let genero = faker.name.gender()
-        let nomeUsuario = faker.internet.userName()
+        let nomeUsuario = faker.internet.userName(nome)
         let senha = faker.internet.password()
 
         const pessoa = {
