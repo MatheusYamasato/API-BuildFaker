@@ -1,9 +1,11 @@
+
 const faker = require("faker");
 const moment = require("moment");
 
 faker.locale = 'pt_BR';
 
 function gerarPessoas(parametro) {
+    
     const pessoas = [];
     for(let i = 0; i < parametro; i++) {
         let nome = faker.name.findName()
@@ -23,6 +25,7 @@ function gerarPessoas(parametro) {
             nomeUsuario,
             senha
         };
+
         pessoas.push(pessoa)
     }
     return pessoas;
